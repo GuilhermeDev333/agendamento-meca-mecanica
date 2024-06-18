@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu do Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="/static/imagem/logo.jpeg" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            align-items: center;
+            background-color: rgb(1, 1, 1);
+            padding: 5px;
+        }
+        img{
+            border-radius: 100%;
+            width: 150px;
+        }
+        body {
+            background-color: rgb(0, 0, 0);
+            overflow-x: hidden;
+        }
+        .setor-1 {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            padding-top: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            width: 100%;
+            color: white;
+        }
+        .conteudo {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .conteudo h1 {
+            color: rgb(133, 5, 5);
+        }
+        button {
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: red;
+            border: none;
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 1.5s;
+           
+        }
+        button:hover:not(:focus) {
+            
+            transition: 1.5s;
+           
+            background-color: rgb(5, 5, 5);
+             
+        }
+        
+        button a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 20px;
+            
+            
+        }
+        p {
+            padding-top: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            color: white;
+            text-align: justify;
+        }
+        h1 {
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 23px;
+        }
+        .setor-2, .setor-3 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-top: 50px;
+        }
+        .card {
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 10px;
+            width: 350px;
+            padding: 30px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 3, 3, 0.966);
+        }
+        footer {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        padding: 50px;
+    }
+    .service {
+        font-weight: 100;
+        letter-spacing: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+    }
+    .nomes {
+        padding-top: 20px;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+    .titulo{
+        font-size: 50px;
+    }
+    .paragrafo{
+        font-size: 22px;
+    }
+    @media only screen and (max-width: 768px) {
+            .setor-1 {
+                flex-direction: column;
+                text-align: center;
+            }
+            .conteudo {
+                padding: 10px;
+            }
+            button {
+                width: 100%;
+            }
+            .setor-2, .setor-3 {
+                padding-top: 20px;
+            }
+            .card {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        .marketing{
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(196, 0, 0, 0.966);
+            width: 550px;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <center>
+            <br><br>
+            <img src="/static/imagem/logo.jpeg" alt="" width="100px">
+        </center>
+    </nav>
+<br><br><br><br>
+<header class="setor-1">
+    <div class="conteudo">
+        <h1 class="titulo">Meca Mecânica</h1>
+        <p class="paragrafo">Na Meca Mecânica, cuidamos do seu veículo como se fosse nosso próprio tesouro. Com uma equipe de especialistas apaixonados por carros, garantimos o melhor serviço de manutenção e reparo para que você possa dirigir com tranquilidade e segurança. Nossa dedicação à qualidade e excelência nos torna a escolha confiável para todos os seus cuidados automotivos.
+
+            <br><br>
+            
+            Na Meca Mecânica, valorizamos cada detalhe do seu veículo, assegurando que ele funcione suavemente e alcance seu desempenho máximo. Utilizamos tecnologia avançada e peças de qualidade para garantir durabilidade e confiabilidade em cada serviço prestado.
+            
+            <br><br>
+            
+            Visite-nos hoje e experimente a diferença de um serviço automotivo focado na sua satisfação e na longevidade do seu veículo. Confie na Meca Mecânica para manter seu carro seguro, eficiente e sempre pronto para enfrentar novos desafios na estrada.
+            </p>
+
+            <p class="paragrafo">
+            Confie na Meca Mecânica para manter seu veículo funcionando suavemente e com desempenho máximo. <br>
+            Visite-nos hoje e experimente a diferença</p>
+           <br>
+            <button><a href="{{ url_for('cliente_agendar') }}">Agendar</a></button>
+    </div>
+</header>
+<header class="setor-3">
+<nav class="setor-imagem">
+    <br>
+<img class="marketing" src="/static/imagem/marketing.jpeg" alt="">
+</nav>
+</header>
+
+<section class="setor-2">
+    <div class="card">
+        <h1>Meca Mecânica é Confiável?</h1>
+        <p>Sim, a Meca Mecânica é uma escolha confiável para seus serviços automotivos. Nossa reputação é construída sobre anos de experiência, um time qualificado de mecânicos especializados e o compromisso com a excelência e a transparência em cada serviço prestado. Além disso, priorizamos a satisfação dos clientes, garantindo que seu veículo receba o melhor cuidado possível para mantê-lo seguro e em ótimo funcionamento nas estradas</p>
+    </div>
+    <div class="card">
+        <h1>Vocês oferecem algum tipo de garantia para os serviços realizados e peças trocadas?</h1>
+        <p>
+            Sim, na Meca Mecânica garantimos a qualidade dos nossos serviços e das peças trocadas. Oferecemos uma garantia que varia de acordo com o tipo de serviço realizado e o tipo de peça substituída. Nossa garantia visa assegurar a satisfação dos clientes, proporcionando tranquilidade e confiança quanto ao desempenho e durabilidade dos reparos realizados em seu veículo.</p>
+    </div>
+    <div class="card">
+        <h1>Qual é a vantagem de trazer meu carro para a sua oficina em vez de outras?</h1>
+        <p>Na Meca Mecânica, oferecemos expertise técnica, qualidade superior e atendimento personalizado. Nossa equipe altamente qualificada utiliza peças de alta qualidade e pratica padrões rigorosos de manutenção. Valorizamos cada cliente com um serviço transparente e focado em suas necessidades específicas, mantendo-nos atualizados com as últimas tecnologias automotivas para diagnósticos precisos e soluções eficientes</p>
+    </div>
+    <div class="card">
+        <h1>Como a qualidade dos seus serviços pode aumentar a vida útil do meu veículo?</h1>
+        <p>Na Meca Mecânica, garantimos a longevidade do seu veículo com manutenção preventiva, uso de peças de alta qualidade e diagnósticos precisos. Nossa equipe experiente realiza serviços com tecnologia avançada, identificando problemas antes que se tornem graves. Além disso, oferecemos recomendações personalizadas para cuidados específicos, assegurando que seu carro continue seguro e eficiente por muito mais tempo.</p>
+    </div>
+</section>
+
+<section class="setor-3">
+    <div class="card">
+        <h1>Como a transparência e a honestidade nos serviços e orçamentos da Meca Mecânica podem proporcionar a você uma maior tranquilidade e confiança no cuidado do seu veículo?</h1>
+        <p>A Meca Mecânica prioriza transparência e honestidade em cada serviço e orçamento. Nós fornecemos orçamentos detalhados, explicamos claramente os serviços necessários e nunca pressionamos por trabalhos não essenciais. Isso garante que você tenha total tranquilidade e confiança no cuidado do seu veículo, sabendo que estamos comprometidos com sua satisfação e segurança.</p>
+    </div>
+    <div class="card">
+        <h1>Quais vantagens exclusivas você pode obter ao se tornar um cliente fiel da Meca Mecânica, incluindo descontos especiais, serviços prioritários e check-ups gratuitos?</h1>
+        <p>Ao se tornar um cliente fiel da Meca Mecânica, você recebe vantagens exclusivas como descontos especiais, serviços prioritários e check-ups gratuitos. Valorizamos sua fidelidade oferecendo benefícios que garantem conveniência, economia e cuidado contínuo para seu veículo, reforçando nosso compromisso em proporcionar a melhor experiência automotiva possível.</p>
+    </div>
+    <div class="card">
+        <h1>Como a Meca Mecânica garante que cada serviço seja realizado com o mais alto padrão de qualidade e atenção aos detalhes, garantindo a satisfação total do cliente?</h1>
+        <p>A Meca Mecânica assegura que cada serviço seja executado com o mais alto padrão de qualidade e atenção aos detalhes, garantindo a total satisfação do cliente. Com uma equipe altamente qualificada e treinada, utilizamos peças de qualidade e seguimos padrões rigorosos de manutenção. Nosso compromisso é proporcionar serviços que não apenas atendam, mas excedam as expectativas dos nossos clientes, assegurando a confiabilidade e o desempenho duradouro de seus veículos.</p>
+    </div>
+    <div class="card">
+        <h1>Como a Meca Mecânica se diferencia pela excelência no serviço ao cliente e pela dedicação em proporcionar a melhor experiência automotiva para você?</h1>
+        <p>A Meca Mecânica se diferencia pela excelência no serviço ao cliente e dedicação em proporcionar a melhor experiência automotiva através de um atendimento personalizado, transparência em cada etapa do serviço e garantia de qualidade. Priorizamos cada cliente individualmente, oferecendo informações claras e precisas sobre todos os procedimentos realizados, assegurando confiança e satisfação em todos os serviços prestados.</p>
+    </div>
+</section>
+<footer>
+    <center>
+        <br><br><br>
+        <h1 class="service">MECA SERVICES</h1>
+        <p class="nomes">&copy; Feito por Guilherme Furlan, Bruno Garcia, Marcus Shivelleti, Ryan alguma coisa, Diener Lima e Deni Silva</p>
+    </center>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Agendamento</title>
+    
+    <link rel="shortcut icon" href="/static/imagem/logo.jpeg" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border-radius: 100%;
+        }
+        body{
+            background-color: rgb(5, 5, 5);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            align-items: center;
+            background-color: red;
+            padding: 5px;
+        }
+
+        ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        li {
+            display: flex;
+            gap: 20px;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        th, td {
+            border: 2px solid #0f0f0f;
+            border-radius: 20px;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            width: 400px;
+            height: 22px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        button {
+            border-radius: 10px;
+            height: 44px;
+            width: 200px;
+            padding: 7px;
+            cursor: pointer;
+            background-color: #ffffff;
+            border: none;
+            color: rgb(0, 0, 0);
+            transition: 1.5s;
+            font-size: 17px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        button:hover:not(:focus) {
+            transition: 1s;
+            color: rgb(255, 255, 255);
+            background-color: rgb(5, 5, 5);
+        }
+
+        .voltar {
+            color: #ffffff;
+            text-align: center;
+            padding-top: 100px;
+            font-size: 27px;
+            transition: 1.5s;
+        }
+
+        .voltar:hover:not(:focus) {
+            transition: 1s;
+            color: rgb(241, 0, 0);
+        }
+
+        .centro {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .voltar:hover {
+            transition: 1s;
+            color: red;
+        }
+
+        .agenda {
+            text-align: center;
+            align-items: center;
+        }
+
+        .agendar {
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 4px;
+        }
+
+        footer {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 57px;
+        }
+
+        .service {
+            font-weight: 100;
+            letter-spacing: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+        }
+
+        .nomes {
+            padding-top: 20px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .menus {
+            display: flex;
+            padding-top: 20px;
+        }
+
+        .corinteira {
+            background-color: rgb(5, 5, 5);
+        }
+
+        .h1listar {
+            color: white;
+        }
+
+        @media only screen and (max-width: 768px) {
+            nav img {
+                width: 80px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            input[type="text"] {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+
+            .voltar {
+                font-size: 14px;
+            }
+
+            .service {
+                font-size: 20px;
+            }
+
+            .nomes {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="h1listar">Lista de Contatos Agendados</h1>
+            <br><br><br><br>
+            <center>
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data Marcada</th>
+                        <th>Hora Marcada</th>
+                    </tr>
+                    {% for contato in contatos %}
+                        <tr>
+                            {% for dado in contato.split('/') %}
+                                {% if 'Nome' in dado %}
+                                    <td>{{ dado.split(':')[1].strip() }}</td>
+                                {% elif 'Data' in dado %}
+                                    <td>{{ dado.split(':')[1].strip() }}</td>
+                                {% elif 'Hora' in dado %}
+                                    <td>{{ dado.split(':')[1].strip() }}:00</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                
+            <br>
+            <div class="centro">
+                <a href="/cliente" class="voltar">Voltar para o Menu</a>
+            </div>
+            <br><br><br>
+            <img src="/static/imagem/logo.jpeg" alt="" width="200px">
+        </center>
+    
+</body>
+</html>

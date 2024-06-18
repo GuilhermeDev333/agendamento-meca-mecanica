@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca por "{{ nome_buscado }}"</title>
+    <link rel="shortcut icon" href="/static/imagem/logo.jpeg" type="image/x-icon">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+nav{
+   display: flex;
+    justify-content: center;
+    
+    align-items: center;
+    background-color: rgb(114, 4, 4);
+    padding: 5px;
+    gap: 50px;
+    
+} 
+
+ul{
+    display: flex;
+    gap: 30px;
+    
+}
+li{
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+table {
+            border-collapse: collapse;
+            width: 50%;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+            
+            
+        }
+        th, td {
+            border: 2px solid #0f0f0f;
+            border-radius: 20px;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #ffffff;
+        }
+        h1{
+            text-align: center;
+            padding-top: 50px;
+            font-family: Arial, Helvetica, sans-serif ;
+         font-weight: 500;
+        }
+        .voltar{
+           font-size: 30px;
+           font-weight: 5;
+           text-decoration: none;
+           color: #ffffff;
+           transition: 1.5s;
+           font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .voltar:hover:not(:focus) {
+    transition: 1s;
+    color: rgb(245, 0, 0);
+    
+        }
+        footer{
+    background-color: rgb(0, 0, 0);
+    color: white;
+   
+    padding: 74.5px;
+    }
+    .service{
+    font-weight: 100;
+    letter-spacing: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+.nomes{
+    padding-top: 20px;
+   
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.corinteira{
+   
+   background-color: rgb(5, 5, 5);
+}
+.txtbusca{
+    color: white;
+}
+
+           
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <main><img src="/static/imagem/logo.jpeg" alt="" width="100px"></main>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/listar">Listar Contato</a></li>
+            
+        </ul>
+        
+    </nav>
+    <div class="corinteira">
+
+  <br><br><br>  <h1 class="txtbusca">Resultados da Busca por "{{ nome_buscado }}"</h1>  <br><br><br>
+  <center>
+    <table>
+        <tr>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Data Marcada</th>
+            <th>Hora Marcada</th>
+        </tr>
+        {% for contato in contatos %}
+        <tr>
+            {% for campo in contato.split('/') %}
+            {% if 'Hora' in campo %}
+            <td>{{ campo.split(':')[1].strip() }}:00</td> <!-- Adicionando ':00' para exibir a hora completa -->
+            {% else %}
+            <td>{{ campo.split(':')[1].strip() }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br><br><br><br><br><br><br>
+       <a href="/listar" class="voltar">Voltar para a Lista de Contato</a> 
+       <br><br><br><br><br><br><br><br><br><br>
+    </div>
+       <footer>
+        <center>
+        <h1 class="service">MECA SERVICES</h1>
+        <P class="nomes"> &copy; Feito por Guilherme Furlan,Bruno Garcia,Marcus Shivelleti,Ryan alguma coisa,Diener Lima e Deni Silva</P> 
+    </center>
+    </footer>
+   
+    
+    </center>
+   
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Contato</title>
+    <link rel="shortcut icon" href="/static/imagem/logo.jpeg" type="image/x-icon">
+    
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: rgb(5, 5, 5);
+    }
+    header {
+        align-items: center;
+        text-align: center;
+        padding-top: 50px;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        align-items: center;
+        background-color: red;
+        padding: 5px;
+    }
+    ul {
+        display: flex;
+        gap: 30px;
+    }
+    li {
+        display: flex;
+        gap: 20px;
+        text-decoration: none;
+    }
+    a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .setor-cadastro {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        align-items: center;
+    }
+    .borda {
+        align-items: center;
+        border: 2px solid rgb(10, 10, 10);
+        background-image: linear-gradient(rgb(0, 0, 0), rgb(10, 10, 10));
+        border-radius: 20px;
+        padding: 50px;
+        width: 450px;
+    }
+    input {
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        width: 400px;
+        height: 40px;
+        text-align: center;
+        font-size: 17px;
+    }
+    label {
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+    }
+    button {
+        border-radius: 10px;
+        width: 300px;
+        height: 37px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .titulo {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        letter-spacing: 4px;
+        color: rgb(255, 255, 255);
+    }
+    .mensagem {
+        font-size: 17px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding-top: 50px;
+        color: white;
+    }
+    .listar {
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+    }
+    .btn {
+        font-size: 18px;
+        background-color: rgb(10, 10, 10);
+        border: none;
+        width: 370px;
+        height: 47px;
+        color: white;
+        transition: 1.5s;
+    }
+    .btn:hover:not(:focus) {
+        transition: 1s;
+        color: rgb(255, 255, 255);
+        background-color: rgb(5, 5, 5);
+    }
+    .data {
+        
+        font-size: 18px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .data-nascimento {
+        width: 350px;
+        border-color: rgb(0, 0, 0);
+    }
+    footer {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        padding: 50px;
+    }
+    .service {
+        font-weight: 100;
+        letter-spacing: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+    }
+    .nomes {
+        padding-top: 20px;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Estilos para telas menores */
+    @media only screen and (max-width: 600px) {
+        .titulo {
+            font-size: 24px;
+        }
+        nav img {
+            width: 80px;
+        }
+        nav ul li a {
+            font-size: 16px;
+        }
+        .setor-cadastro {
+            padding-top: 10px;
+        }
+        .borda {
+            padding: 30px;
+        }
+        input {
+            width: 300px;
+            font-size: 14px;
+        }
+        label {
+            font-size: 16px;
+        }
+        .btn {
+            width: 250px;
+            height: 37px;
+            font-size: 14px;
+        }
+    }
+    /* Estilos para telas maiores */
+    @media only screen and (max-width: 768px) {
+        nav img {
+            width: 80px;
+        }
+        nav ul li a {
+            font-size: 14px;
+        }
+        table {
+            font-size: 14px;
+        }
+        input[type="text"] {
+            font-size: 14px;
+        }
+        button {
+            font-size: 14px;
+        }
+        .voltar {
+            font-size: 14px;
+        }
+        .service {
+            font-size: 20px;
+        }
+        .nomes {
+            font-size: 10px;
+        }
+    }
+    .corinteira {
+        background-color: rgb(5, 5, 5);
+    }
+    div{
+        color: white;
+       
+        font-size: 17px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    img{
+        border-radius: 100%;
+    }
+</style>
+</head>
+<body>
+   
+    <header class="setor1">
+        <h1 class="titulo">Agendamento de Cliente</h1>
+        <center>
+        <main class="setor-cadastro">
+            <main class="borda">
+                <form action="{{ url_for('cliente_agendar') }}" method="post">
+                    <div>
+                        <label for="idcontato">CPF:</label>
+                        <input type="text" id="idcontato" name="idcontato" placeholder="Seu CPF" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="telefone">Telefone:</label><br>
+                        <input type="text" id="telefone" name="telefone" placeholder="(xx)xxxx-xxxx" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="data_agendamento">Agendamento</label> <br>
+                        <input type="date" id="data_agendamento" name="data_agendamento" class="data" required>
+                    </div>
+                    <div>
+                        <br>
+                        <label for="hora_agendamento">Hora de Agendamento:</label>
+                        <input type="time" id="hora_agendamento" name="hora_agendamento" required><br><br>
+                    </div>
+                    <br><br>
+                    <button type="submit" class="btn">Agendar Contato</button>
+                </form>
+                <br>
+                <div>
+                    <button class="btn"><a href="{{ url_for('cliente_agendamentos') }}" class="listar">Listar Agenda</a></button>
+
+                </div>
+                <br>
+                {% if mensagem %}
+        <div>{{ mensagem }}</div> <!-- Exibir a mensagem se existir -->
+        {% endif %}
+            </main>
+        </main>
+    </header>
+    <center>
+        <br><br><br>
+    <img src="/static/imagem/logo.jpeg" alt="" width="200px">
+    <br><br>
+</center>
+</body>
+</html>
